@@ -1,0 +1,2 @@
+class Hamt
+end
