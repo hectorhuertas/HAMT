@@ -1,5 +1,5 @@
 require 'node'
-
+require 'pry'
 class NodeTest < Minitest::Test
   def setup
     @node = Node.new
@@ -136,13 +136,16 @@ class NodeTest < Minitest::Test
   def test_deeper_levels_have_more_than_one_link
     @node.set('head', '0')
     @node.set('pizza', 'Yummy')
-    200.times {|pos| @node.set("key #{pos}", "value #{pos}")}
+    1000.times {|pos|
+# binding.pry
+      @node.set("key #{pos}", "value #{pos}")}
+      # binding.pry
     pizza_links = @node.links[23].links.compact
-    # puts pizza_links[3].inspect
+    puts pizza_links.length
+    # puts @node.links[23].inspect
     assert pizza_links.length > 1
     assert pizza_links.length > 2
     assert pizza_links.length > 3
-
   end
     # 50.times {|pos| puts @node.find_index("key #{pos}")}
 end
