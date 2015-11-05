@@ -128,8 +128,9 @@ class NodeTest < Minitest::Test
   end
 
 
-# test it handles collisions setting another level
-# insert a colliding value
-# test it handles collisions by changing the index at different levels
-# shovel 5 times depth bits before adding 31
+  def test_it_handles_collisions_when_large_sets_of_data
+    200.times {|pos| @node.set("key #{pos}", "value #{pos}")}
+    200.times {|pos| assert_equal "value #{pos}", @node.get("key #{pos}")}
+  end
+    # 50.times {|pos| puts @node.find_index("key #{pos}")}
 end
