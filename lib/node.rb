@@ -1,8 +1,12 @@
 class Node
   attr_reader :key, :value
 
-  # def initialize
-  #   @key = nil
-  #   @value = nil
-  # end
+  def insert(key, value)
+    @value = value
+  end
+
+  def value_of(key)
+    @value
+  end
+
 end
