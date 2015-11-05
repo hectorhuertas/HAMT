@@ -132,5 +132,17 @@ class NodeTest < Minitest::Test
     200.times {|pos| @node.set("key #{pos}", "value #{pos}")}
     200.times {|pos| assert_equal "value #{pos}", @node.get("key #{pos}")}
   end
+
+  def test_deeper_levels_have_more_than_one_link
+    @node.set('head', '0')
+    @node.set('pizza', 'Yummy')
+    200.times {|pos| @node.set("key #{pos}", "value #{pos}")}
+    pizza_links = @node.links[23].links.compact
+    # puts pizza_links[3].inspect
+    assert pizza_links.length > 1
+    assert pizza_links.length > 2
+    assert pizza_links.length > 3
+
+  end
     # 50.times {|pos| puts @node.find_index("key #{pos}")}
 end
