@@ -105,4 +105,12 @@ class NodeTest < Minitest::Test
   def test_it_finds_the_link_position_of_a_number
     assert_equal 23, @node.find_index(56)
   end
+
+# test it sets several keys of different indexes
+# insert 5 different keys that do not collide
+# test it handles collisions setting another level
+# insert a colliding value
+# test it handles collisions by changing the index at different levels
+# test it indexes depending on depth
+# shovel 5 times depth bits before adding 31
 end
