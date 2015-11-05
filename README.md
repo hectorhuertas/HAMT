@@ -14,6 +14,8 @@ Each node should store 3 things
 ToDo
 ====
 
+low-review index.rb readability and testing
+
 Implement inmutability
 
 New trie when at the bottom
