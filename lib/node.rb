@@ -25,7 +25,7 @@ class Node
     end
   end
 
-  def find_index(key_input)
-    Digest::SHA1.hexdigest(key_input.to_s).to_i(16) & 31
+  def find_index(key_input, depth = 0)
+    (Digest::SHA1.hexdigest(key_input.to_s).to_i(16) >> 5*depth)& 31
   end
 end
