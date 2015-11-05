@@ -5,7 +5,7 @@ class Node
     @value = value
   end
 
-  def value_of(key)
+  def get(key)
     @value
   end
 

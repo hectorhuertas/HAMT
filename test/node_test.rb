@@ -18,29 +18,29 @@ class NodeTest < Minitest::Test
     refute  @node.value
   end
 
-  def test_it_inserts_a_key_value
+  def test_it_sets_a_key_value
     @node.set('Pizza', 'Yummy')
     assert_equal 'Yummy', @node.value
   end
 
-  def test_it_inserts_other_key_value
+  def test_it_sets_other_key_value
     @node.set('Brocoli', 'Ahgg')
     assert_equal 'Ahgg', @node.value
   end
 
-  def test_it_can_recover_a_value_from_its_key
+  def test_it_gets_a_value_from_its_key
     @node.set('Pizza', 'Yummy')
-    assert_equal 'Yummy', @node.value_of('Pizza')
+    assert_equal 'Yummy', @node.get('Pizza')
   end
 
-  def test_it_can_recover_another_value_from_its_key
+  def test_it_gets_another_value_from_its_key
     @node.set('Brocoli', 'Ahgg')
-    assert_equal 'Ahgg', @node.value_of('Brocoli')
+    assert_equal 'Ahgg', @node.get('Brocoli')
   end
 
-  def test_it_can_override_the_value_of_a_key
+  def test_it_can_override_the_gets_a_key
   end
 
-  def test_it_can_override_the_value_of_another_key
+  def test_it_can_override_the_gets_another_key
   end
 end
