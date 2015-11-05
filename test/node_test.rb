@@ -56,4 +56,19 @@ class NodeTest < Minitest::Test
 
     assert_equal 'Yummy', @node.get('Pizza')
   end
+
+  def test_it_doesnt_overide_a_value_of_a_different_key
+    @node.set('Pizza', 'Yummy')
+    @node.set('Brocoli', 'Ahgg')
+
+    assert_equal 'Yummy', @node.get('Pizza')
+  end
+
+  def test_it_sets_a_second_key_value
+    skip
+  end
+
+  def test_it_sets_another_second_key_value
+    skip
+  end
 end
