@@ -12,14 +12,17 @@ class Node
       @value = value_input
       @key   = key_input
     else
-      @links[find_index(key_input)]||= Node.new
+      @links[find_index(key_input)] ||= Node.new
       @links[find_index(key_input)].set(key_input, value_input)
     end
   end
 
   def get(key_input)
-    bob = key_input
-    @value
+    if key_input == key
+      @value
+    else
+      @links[find_index(key_input)].get(key_input)
+    end
   end
 
   def find_index(key_input)

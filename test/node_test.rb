@@ -1,7 +1,6 @@
 require 'node'
 
 class NodeTest < Minitest::Test
-
   def setup
     @node = Node.new
   end
@@ -15,7 +14,7 @@ class NodeTest < Minitest::Test
   end
 
   def test_it_is_created_without_a_value
-    refute  @node.value
+    refute @node.value
   end
 
   def test_it_sets_a_key_value
@@ -47,7 +46,6 @@ class NodeTest < Minitest::Test
     @node.set('pizza', 'Ahgg')
 
     assert_equal 'Ahgg', @node.get('pizza')
-
   end
 
   def test_it_overrides_the_value_of_another_key
@@ -97,16 +95,14 @@ class NodeTest < Minitest::Test
   end
 
   def test_it_finds_the_link_position_of_a_word
-   assert_equal 0, @node.find_index('calzone')
+    assert_equal 0, @node.find_index('calzone')
   end
 
   def test_it_finds_the_link_position_of_another_word
-   assert_equal 23, @node.find_index('pizza')
+    assert_equal 23, @node.find_index('pizza')
   end
 
   def test_it_finds_the_link_position_of_a_number
-   assert_equal 23, @node.find_index(56)
+    assert_equal 23, @node.find_index(56)
   end
-
-
 end
