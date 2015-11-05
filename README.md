@@ -17,6 +17,3 @@ ToDo
 Implement inmutability
 
 New trie when at the bottom
-
-
-As of now, Get should not work!!!

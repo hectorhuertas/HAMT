@@ -133,19 +133,25 @@ class NodeTest < Minitest::Test
     200.times {|pos| assert_equal "value #{pos}", @node.get("key #{pos}")}
   end
 
-  def test_deeper_levels_have_more_than_one_link
+  def test_second_level_has_more_than_one_link
     @node.set('head', '0')
     @node.set('pizza', 'Yummy')
-    1000.times {|pos|
-# binding.pry
-      @node.set("key #{pos}", "value #{pos}")}
-      # binding.pry
+    1000.times {|pos|  @node.set("key #{pos}", "value #{pos}")}
     pizza_links = @node.links[23].links.compact
-    puts pizza_links.length
-    # puts @node.links[23].inspect
     assert pizza_links.length > 1
     assert pizza_links.length > 2
     assert pizza_links.length > 3
+  end
+
+  def test_deeper_levels_have_more_than_one_link
+    ## pick a non random path to a third level to test better
+    10000.times {|pos| @node.set("key #{pos}", "value #{pos}")}
+    level_1 = @node.links[rand(0..31)]
+    level_2 = @node.links[rand(0..31)].links[rand(0..31)]
+    level_3 = @node.links[rand(0..31)].links[rand(0..31)].links[rand(0..31)]
+
+    assert level_1.links.compact.length > 1
+    assert level_2.links.compact.length > 1
   end
     # 50.times {|pos| puts @node.find_index("key #{pos}")}
 end
