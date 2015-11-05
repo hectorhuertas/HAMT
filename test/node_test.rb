@@ -71,4 +71,28 @@ class NodeTest < Minitest::Test
   def test_it_sets_another_second_key_value
     skip
   end
+
+  def test_it_gets_the_value_of_a_second_key
+    skip
+  end
+
+  def test_it_gets_the_value_of_another_second_key
+    skip
+  end
+
+  def test_it_SHA1_hashes_a_value
+    assert Digest::SHA1.hexdigest('something')
+  end
+
+ def test_it_finds_the_link_position_of_a_word
+   assert_equal 15, @node.find_index('calzone')
+ end
+
+ def test_it_finds_the_link_position_of_another_word
+   assert_equal 16, @node.find_index('pizza')
+ end
+
+ def test_it_finds_the_link_position_of_a_number
+   assert_equal 17, @node.find_index(56)
+ end
 end
