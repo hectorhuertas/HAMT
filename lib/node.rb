@@ -1,12 +1,19 @@
 require 'digest'
 
 class Node
-  attr_reader :key, :value
+  attr_reader :key, :value, :links
+
+  def initialize
+    @links = []
+  end
 
   def set(key_input, value_input)
     if key == key_input || key.nil?
       @value = value_input
       @key   = key_input
+    else
+      @links[find_index(key_input)]||= Node.new
+      @links[find_index(key_input)].set(key_input, value_input)
     end
   end
 

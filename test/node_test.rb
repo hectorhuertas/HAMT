@@ -64,12 +64,18 @@ class NodeTest < Minitest::Test
     assert_equal 'Yummy', @node.get('Pizza')
   end
 
-  def test_it_sets_a_second_key_value
-    skip
+  def test_it_sets_a_second_key_value_on_its_position
+    @node.set('Pizza', 'Yummy')
+    @node.set('brocoli', 'Ahgg')
+
+    assert_equal 'Ahgg', @node.links[25].value
   end
 
-  def test_it_sets_another_second_key_value
-    skip
+  def test_it_sets_another_second_key_value_on_its_position
+    @node.set('Pizza', 'Yummy')
+    @node.set('calzone', 'Real Yummy!')
+
+    assert_equal 'Real Yummy!', @node.links[15].value
   end
 
   def test_it_gets_the_value_of_a_second_key
@@ -84,15 +90,17 @@ class NodeTest < Minitest::Test
     assert Digest::SHA1.hexdigest('something')
   end
 
- def test_it_finds_the_link_position_of_a_word
+  def test_it_finds_the_link_position_of_a_word
    assert_equal 15, @node.find_index('calzone')
- end
+  end
 
- def test_it_finds_the_link_position_of_another_word
+  def test_it_finds_the_link_position_of_another_word
    assert_equal 16, @node.find_index('pizza')
- end
+  end
 
- def test_it_finds_the_link_position_of_a_number
+  def test_it_finds_the_link_position_of_a_number
    assert_equal 17, @node.find_index(56)
- end
+  end
+
+
 end
