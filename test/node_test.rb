@@ -122,10 +122,12 @@ class NodeTest < Minitest::Test
     assert_equal  5, @node.find_index('brocoli',4)
   end
 
+  def test_it_sets_several_keys_of_different_indexes
+    5.times {|pos| @node.set("key #{pos}", "value #{pos}")}
+    5.times {|pos| assert_equal "value #{pos}", @node.get("key #{pos}")}
+  end
 
 
-# test it sets several keys of different indexes
-# insert 5 different keys that do not collide
 # test it handles collisions setting another level
 # insert a colliding value
 # test it handles collisions by changing the index at different levels
