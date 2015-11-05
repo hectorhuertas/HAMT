@@ -1,7 +1,7 @@
 class Node
   attr_reader :key, :value
 
-  def insert(key, value)
+  def set(key, value)
     @value = value
   end
 
