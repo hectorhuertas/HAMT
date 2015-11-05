@@ -106,11 +106,28 @@ class NodeTest < Minitest::Test
     assert_equal 23, @node.find_index(56)
   end
 
+  def test_it_indexes_a_word_depending_on_depth
+    assert_equal 23, @node.find_index('pizza')
+    assert_equal 16, @node.find_index('pizza',1)
+    assert_equal  0, @node.find_index('pizza',2)
+    assert_equal 13, @node.find_index('pizza',3)
+    assert_equal 28, @node.find_index('pizza',4)
+  end
+
+  def test_it_indexes_another_word_depending_on_depth
+    assert_equal 11, @node.find_index('brocoli')
+    assert_equal 25, @node.find_index('brocoli',1)
+    assert_equal  3, @node.find_index('brocoli',2)
+    assert_equal  5, @node.find_index('brocoli',3)
+    assert_equal  5, @node.find_index('brocoli',4)
+  end
+
+
+
 # test it sets several keys of different indexes
 # insert 5 different keys that do not collide
 # test it handles collisions setting another level
 # insert a colliding value
 # test it handles collisions by changing the index at different levels
-# test it indexes depending on depth
 # shovel 5 times depth bits before adding 31
 end
