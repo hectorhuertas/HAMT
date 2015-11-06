@@ -18,4 +18,9 @@ low-review index.rb readability and testing
 
 Implement inmutability
 
+when ovewriting key
+  create new node
+  assign old node links to new node
+  change link of previous node to the node just created
+
 New trie when at the bottom
