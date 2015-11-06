@@ -1,6 +1,6 @@
 HAMT - Hash Array Mapped Trie
 =============================
-
+https://github.com/turingschool/data_structures_and_algorithms/tree/master/hash_array_mapped_tries
 
 Nodes
 =====
@@ -17,10 +17,9 @@ ToDo
 low-review index.rb readability and testing
 
 Implement inmutability
-
-when ovewriting key
-  create new node
-  assign old node links to new node
-  change link of previous node to the node just created
+  when ovewriting key ---> WRONG! Ask Horace about how it should owrk
+    create new node
+    assign old node links to new node
+    change link of previous node to the node just created
 
 New trie when at the bottom
