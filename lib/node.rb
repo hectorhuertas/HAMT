@@ -48,4 +48,14 @@ class Node
     Index.get(input, depth)
   end
 
+  def keys
+    keys_of_links = @links.compact.map{|node| node.keys}
+    [key] + keys_of_links.flatten
+  end
+
+  def values
+    values_of_links = @links.compact.map{|node| node.values}
+    [value] + values_of_links.flatten
+  end
+
 end

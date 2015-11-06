@@ -122,4 +122,21 @@ class NodeTest < Minitest::Test
     assert level_2.links.compact.length > 1
   end
     # 50.times {|pos| puts @node.find_index("key #{pos}")}
+
+  def test_it_recovers_keys_of_tree
+    100.times {|pos| @node.set("key #{pos}", "value #{pos}")}
+    expected = []
+    100.times {|pos| expected << "key #{pos}"}
+
+    assert_equal expected.sort, @node.keys.sort
+  end
+
+  def test_it_recovers_values_of_tree
+    100.times {|pos| @node.set("key #{pos}", "value #{pos}")}
+    expected = []
+    100.times {|pos| expected << "value #{pos}"}
+
+    assert_equal expected.sort, @node.values.sort
+  end
+
 end
