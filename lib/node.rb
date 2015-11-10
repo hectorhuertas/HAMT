@@ -7,6 +7,8 @@ class Node
   end
 
   def set(input, value_input)
+    # 1 duplicate ourselves and return new copy
+
     case key
     when nil   then asign_to_this_node(input, value_input)
     when input then asign_to_this_node(input, value_input)
@@ -14,6 +16,12 @@ class Node
     end
   end
 
+  def duplicate
+    # make a copy of this node....
+    # (copy self and copy links array)
+    # or...
+    #  Node.new(key, value, links)
+  end
   def get(input)
     if input == key
       @value
@@ -28,6 +36,10 @@ class Node
   end
 
   def asign_to_other_node(input, value_input)
+    # 2 - assign_to_linked_node has to return
+    # a node (new node with changes made)
+    # and we need to set that new node into the position of
+    # the links in the new copy of ourself
     initialize_link(input)
     asign_to_linked_node(input, value_input)
   end

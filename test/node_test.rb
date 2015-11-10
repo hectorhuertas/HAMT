@@ -88,6 +88,7 @@ class NodeTest < Minitest::Test
     @node.set('brocoli', 'Ahgg')
 
     assert_equal 'Ahgg', @node.get('brocoli')
+    assert_nil @node.get("doesnt exist")
   end
 
   def test_it_sets_several_keys_of_different_indexes
